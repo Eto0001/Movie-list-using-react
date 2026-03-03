@@ -28,8 +28,8 @@ function Home() {
         <button type="submit" className="search-button">Search</button>
         </form>
         <div className="movie-grid">
-            {movies.map((movie) => movie.title.toLowerCase().startsWith(searchTerm) &&
-                (<MovieCard key={movie.id} movie={movie} />
+            {movies.map((movie) =>(
+                <MovieCard key={movie.id} movie={movie} />
             ))}
         </div>
     </div>
