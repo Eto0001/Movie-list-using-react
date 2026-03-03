@@ -27,9 +27,23 @@ function Home() {
         loadPopularMovies();
     }, []);
 
-    const handleSearch = (e) => {
+    const handleSearch = async (e) => {
         e.preventDefault();
-        alert(searchTerm);
+        if(!searchTerm.trim()) return
+        setLoading(true);
+        try {
+            const searchResults = await searchMovies(searchTerm)
+            setMovies(searchResults);
+            setError(null);
+        }
+        catch (error) {
+            console.log(error)
+            setError("Failed to search movies. Please try again later.");
+        }
+        finally{
+
+        }
+
         setSearchTerm("");
     };
 
