@@ -1,15 +1,14 @@
 import './App.css'
+import Home from './pages/Home'
 import MovieCard from './component/MovieCard'
 
 function App() {
 
   return (
     <>
-    <MovieCard movie={{title: "The Matrix", release_date: "1999-03-31"}} />
-    <MovieCard movie={{title: "The Matrix", release_date: "1999-03-31"}} />
-
+    <Home />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
