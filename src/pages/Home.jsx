@@ -41,7 +41,7 @@ function Home() {
             setError("Failed to search movies. Please try again later.");
         }
         finally{
-
+            setLoading(false);
         }
 
         setSearchTerm("");
