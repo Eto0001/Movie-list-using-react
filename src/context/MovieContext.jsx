@@ -2,7 +2,7 @@ import {createContext, useState, useContext, useEffect, use} from "react"
 
 const MovieContext = createContext()
 
-export const useMovieContext = () => useContext(MovieProvider)
+export const useMovieContext = () => useContext(MovieContext)
 
 export const MovieProvider = ({children}) => {
 
@@ -41,5 +41,5 @@ export const MovieProvider = ({children}) => {
 
     return <MovieContext.Provider value={value}>
         {children}
-    </MovieContext.Provider>
+            </MovieContext.Provider>
     }
