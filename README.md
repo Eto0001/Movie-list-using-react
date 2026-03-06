@@ -1,16 +1,46 @@
-# React + Vite
+# 🎬 Movie Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React movie browsing application that allows users to search movies, view detailed information, watch trailers, and manage a favorites list.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+[https://your-vercel-link.vercel.app](https://movie-list-7zl641h05-eto0001s-projects.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 🔍 Search movies using TMDB API
+- 🎥 View movie details, cast, and trailers
+- ⭐ Add / remove movies from favorites
+- 💾 Favorites stored in localStorage
+- 🌙 Dark / Light mode toggle
+- 🎬 Embedded YouTube trailers
+- 🎭 Cast information
+- 🎨 Favorite button animation
+- 📱 Responsive design
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Tech Stack
 
-## Expanding the ESLint configuration
+- React
+- Context API
+- JavaScript (ES6+)
+- CSS
+- TMDB API
+- Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📸 Screenshots
+
+
+## 📦 Installation
+
+git clone https://github.com/yourusername/movie-explorer.git
+
+cd movie-list
+
+npm install
+
+npm run dev
+
+## 🔑 Environment Variables
+
+Create a `.env` file and add:
+
+VITE_API_KEY=your_tmdb_api_key
