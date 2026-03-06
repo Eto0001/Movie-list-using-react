@@ -50,7 +50,7 @@ A modern React movie browsing application that allows users to search movies, vi
 
 ## 📦 Installation
 
-git clone https://github.com/yourusername/movie-explorer.git
+git clone https://github.com/yourusername/movie-list.git
 
 cd movie-list
 
