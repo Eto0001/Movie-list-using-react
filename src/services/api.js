@@ -11,7 +11,6 @@ export async function getGenres() {
   );
   if (!response.ok) throw new Error("Failed to fetch genres");
   const data = await response.json();
-  // Convert array to a lookup map: { 28: "Action", 12: "Adventure", ... }
   genreCache = Object.fromEntries(data.genres.map((g) => [g.id, g.name]));
   return genreCache;
 }
@@ -39,6 +38,29 @@ export async function searchMovies(query, page = 1) {
   return {
     movies: data.results.map((m) => enrichMovie(m, genres)),
     totalPages: data.total_pages,
+  };
+}
+
+export async function getMovieDetails(movieId) {
+  const [detailsRes, creditsRes] = await Promise.all([
+    fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&append_to_response=videos`),
+    fetch(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`),
+  ]);
+  if (!detailsRes.ok) throw new Error("Failed to fetch movie details");
+  const details = await detailsRes.json();
+  const credits = await creditsRes.json();
+
+  const trailer = details.videos?.results?.find(
+    (v) => v.type === "Trailer" && v.site === "YouTube"
+  );
+
+  return {
+    ...details,
+    rating: details.vote_average ? Math.round(details.vote_average * 10) / 10 : null,
+    genre_names: details.genres?.map((g) => g.name) || [],
+    trailer_key: trailer?.key || null,
+    cast: credits.cast?.slice(0, 8) || [],
+    director: credits.crew?.find((c) => c.job === "Director")?.name || null,
   };
 }
 
