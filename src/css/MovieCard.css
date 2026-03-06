@@ -1,3 +1,10 @@
+/* ── Card Link Wrapper ──────────────────────────────────────── */
+.movie-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 /* ── Movie Card ─────────────────────────────────────────────── */
 .movie-card {
   background: var(--bg-surface);
@@ -78,10 +85,11 @@
   color: #fff;
   margin: 0;
   line-height: 1.3;
+  overflow: hidden;
   display: -webkit-box;
+  /* stylelint-disable-next-line */
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .hover-meta {
@@ -124,10 +132,11 @@
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.5;
   margin: 0;
+  overflow: hidden;
   display: -webkit-box;
+  /* stylelint-disable-next-line */
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 /* Favorite button — sits at bottom right of panel */
@@ -233,13 +242,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  height: 95px; /* fixed height — cards stay uniform */
+  height: 100px;
   overflow: hidden;
 }
 
 .movie-info h3 {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--text);
   white-space: nowrap;
@@ -247,6 +256,7 @@
   text-overflow: ellipsis;
   letter-spacing: -0.01em;
   transition: color 0.3s ease;
+  max-width: 100%;
 }
 
 .movie-year {
