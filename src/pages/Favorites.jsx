@@ -9,7 +9,7 @@ function Favorites() {
   if (!favorites?.length) {
     return (
       <div className="favorites-empty">
-        <div className="empty-icon">♡</div>
+        <div className="empty-icon">★</div>
         <h2>No favorites yet</h2>
         <p>Add movies to your list and they'll show up here.</p>
         <Link to="/" className="empty-cta">Browse Movies</Link>
