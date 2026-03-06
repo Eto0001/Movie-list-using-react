@@ -1,47 +1,114 @@
+/* ── Navbar ─────────────────────────────────────────────────── */
 .navbar {
-  background-color: #000000;
-  padding: 1rem 2rem;
+  background-color: #0a0a0a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0 2rem;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
+/* subtle red bottom-line on scroll — works via box-shadow so no layout shift */
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #e50914 0%, transparent 60%);
+  opacity: 0.6;
+}
+
+/* ── Brand ──────────────────────────────────────────────────── */
 .navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
 }
 
+.navbar-brand:hover { opacity: 0.85; }
+
+.brand-icon {
+  color: #e50914;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.brand-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #f5f5f5;
+  letter-spacing: -0.02em;
+}
+
+/* ── Nav Links ──────────────────────────────────────────────── */
 .navbar-links {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .nav-link {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 0.45rem 0.875rem;
+  border-radius: 6px;
+  position: relative;
+  transition: color 0.2s, background 0.2s;
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  color: #f5f5f5;
+  background: rgba(255, 255, 255, 0.07);
 }
 
-@media (max-width: 768px) {
+/* Active state — underline pill */
+.nav-link.active {
+  color: #f5f5f5;
+  background: rgba(229, 9, 20, 0.1);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 2px;
+  border-radius: 99px;
+  background: #e50914;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 639px) {
   .navbar {
-    padding: 1rem;
+    padding: 0 1rem;
+    height: 56px;
   }
 
-  .navbar-brand {
-    font-size: 1.2rem;
+  .brand-text {
+    font-size: 1.05rem;
   }
 
   .navbar-links {
-    gap: 1rem;
+    gap: 0;
   }
 
   .nav-link {
-    padding: 0.5rem;
+    padding: 0.4rem 0.625rem;
+    font-size: 0.82rem;
   }
 }
