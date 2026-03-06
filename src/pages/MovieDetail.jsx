@@ -151,8 +151,10 @@ function MovieDetail() {
                         : <span>{actor.name[0]}</span>
                       }
                     </div>
-                    <p className="cast-name">{actor.name}</p>
-                    <p className="cast-character">{actor.character}</p>
+                    <div className="cast-text">
+                      <p className="cast-name">{actor.name}</p>
+                      <p className="cast-character">{actor.character}</p>
+                    </div>
                   </div>
                 ))}
               </div>
