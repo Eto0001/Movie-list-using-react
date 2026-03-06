@@ -1,8 +1,72 @@
-.main-content {
-  flex: 1;
-  padding: 2rem;
+/* ── Theme Variables ────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --bg:          #0a0a0a;
+  --bg-surface:  #141414;
+  --bg-surface2: #1e1e1e;
+  --border:      rgba(255, 255, 255, 0.07);
+  --text:        #f5f5f5;
+  --text-muted:  #888;
+  --red:         #e50914;
+  --red-hot:     #ff1a26;
+  --star:        #f5c518;
+
+  /* Toggle */
+  --toggle-bg:        #333;
+  --toggle-thumb:     #f5f5f5;
+  --toggle-thumb-off: #888;
+}
+
+[data-theme="light"] {
+  --bg:          #f0f0f0;
+  --bg-surface:  #ffffff;
+  --bg-surface2: #e8e8e8;
+  --border:      rgba(0, 0, 0, 0.1);
+  --text:        #111111;
+  --text-muted:  #666666;
+  --red:         #e50914;
+  --red-hot:     #c7000f;
+  --star:        #d4a800;
+
+  --toggle-bg:        #ccc;
+  --toggle-thumb:     #fff;
+  --toggle-thumb-off: #fff;
+}
+
+/* ── Global Reset ───────────────────────────────────────────── */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.main-content {
   width: 100%;
-  display: flex;
-  flex-direction: column;
 }

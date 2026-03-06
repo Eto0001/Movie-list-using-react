@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
+import { useTheme } from "../App";
 import "../css/Navbar.css";
 
 function NavBar() {
+  const { isDark, setIsDark } = useTheme();
+
   return (
     <nav className="navbar">
       <NavLink to="/" className="navbar-brand">
@@ -23,6 +26,18 @@ function NavBar() {
         >
           Favorites
         </NavLink>
+
+        {/* ── Theme Toggle ── */}
+        <button
+          className="theme-toggle"
+          onClick={() => setIsDark(prev => !prev)}
+          aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          <span className="toggle-track">
+            <span className="toggle-thumb" />
+          </span>
+          <span className="toggle-icon">{isDark ? "🌙" : "☀️"}</span>
+        </button>
       </div>
     </nav>
   );

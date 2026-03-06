@@ -4,7 +4,8 @@
   width: 100%;
   box-sizing: border-box;
   min-height: 100vh;
-  background-color: #0a0a0a;
+  background-color: var(--bg);
+  transition: background-color 0.3s ease;
 }
 
 /* ── Header ─────────────────────────────────────────────────── */
@@ -19,22 +20,23 @@
 .favorites-title {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #f5f5f5;
+  color: var(--text);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   opacity: 0.5;
   margin: 0;
+  transition: color 0.3s ease;
 }
 
 .favorites-count {
   font-size: 0.8rem;
-  color: #e50914;
+  color: var(--red);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-/* ── Grid (matches Home.css) ────────────────────────────────── */
+/* ── Grid ───────────────────────────────────────────────────── */
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -48,14 +50,8 @@
 }
 
 @keyframes cardReveal {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Empty State ────────────────────────────────────────────── */
@@ -67,15 +63,16 @@
   gap: 0.875rem;
   min-height: calc(100vh - 64px);
   padding: 4rem 2rem;
-  background-color: #0a0a0a;
+  background-color: var(--bg);
   text-align: center;
   animation: cardReveal 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  transition: background-color 0.3s ease;
 }
 
 .empty-icon {
   font-size: 3.5rem;
   line-height: 1;
-  color: #e50914;
+  color: var(--red);
   opacity: 0.3;
   margin-bottom: 0.5rem;
 }
@@ -84,23 +81,25 @@
   margin: 0;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #f5f5f5;
+  color: var(--text);
   letter-spacing: -0.02em;
+  transition: color 0.3s ease;
 }
 
 .favorites-empty p {
   margin: 0;
-  color: #888;
+  color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.6;
   max-width: 300px;
+  transition: color 0.3s ease;
 }
 
 .empty-cta {
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.7rem 1.5rem;
-  background: #e50914;
+  background: var(--red);
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
@@ -111,16 +110,14 @@
 }
 
 .empty-cta:hover {
-  background: #ff1a26;
+  background: var(--red-hot);
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(229, 9, 20, 0.35);
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 639px) {
-  .favorites {
-    padding: 1.75rem 1rem 3rem;
-  }
+  .favorites { padding: 1.75rem 1rem 3rem; }
 
   .movies-grid {
     grid-template-columns: repeat(2, 1fr);
